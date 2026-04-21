@@ -1,0 +1,42 @@
+Package: secureverse
+Title: Umbrella Meta-Package for the secure-r-dev Ecosystem
+Version: 0.1.0
+Authors@R:
+    person("Ian", "Flores Siaca", , "iflores.siaca@hey.com", role = c("aut", "cre", "cph"))
+Description: Umbrella package that loads the seven secure-r-dev
+    components (securer, securetools, secureguard, securecontext,
+    orchestr, securetrace, securebench) at compatible, pinned versions.
+    Also hosts cross-package end-to-end tests that exercise the
+    governed-agent, traced-pipeline, retrieval-augmented, and
+    benchmarking flows together.
+License: MIT + file LICENSE
+URL: https://github.com/ian-flores/secureverse
+BugReports: https://github.com/ian-flores/secureverse/issues
+Depends:
+    R (>= 4.1.0)
+Imports:
+    cli,
+    orchestr (>= 0.2.0),
+    securebench (>= 0.2.0),
+    securecontext (>= 0.2.0),
+    secureguard (>= 0.3.0),
+    securer (>= 0.2.0),
+    securetools (>= 0.2.0),
+    securetrace (>= 0.2.1)
+Suggests:
+    ellmer,
+    testthat (>= 3.0.0),
+    withr
+Remotes:
+    ian-flores/securer@v0.2.0,
+    ian-flores/securetools@v0.2.0,
+    ian-flores/secureguard@v0.3.0,
+    ian-flores/securecontext@v0.2.0,
+    ian-flores/orchestr@v0.2.0,
+    ian-flores/securetrace@v0.2.1,
+    ian-flores/securebench@v0.2.0
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Language: en-US
+RoxygenNote: 7.3.3
