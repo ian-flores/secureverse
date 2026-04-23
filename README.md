@@ -1,5 +1,9 @@
 # secureverse
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/ian-flores/secureverse/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ian-flores/secureverse/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 > Umbrella meta-package for the secure-r-dev ecosystem.
 
 secureverse has no runtime logic of its own. It exists to:
