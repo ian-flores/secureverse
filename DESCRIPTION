@@ -25,6 +25,7 @@ Imports:
     securetrace (>= 0.2.1)
 Suggests:
     ellmer,
+    R6,
     testthat (>= 3.0.0),
     withr
 Remotes:
