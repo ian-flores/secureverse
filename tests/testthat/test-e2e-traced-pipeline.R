@@ -19,7 +19,7 @@ test_that("spans from multiple siblings nest under a single trace", {
 
   span_names <- vapply(tr$spans, function(s) s$name, character(1))
   # At least one span from each of the three siblings that ran above.
-  expect_true(any(grepl("^tools\\.", span_names)))
+  expect_true(any(grepl("^tool\\.", span_names)))
   expect_true(any(grepl("^guardrail\\.|^bench\\.", span_names)) ||
               any(grepl("injection", span_names, ignore.case = TRUE)))
   expect_true(any(grepl("^context\\.", span_names)))
