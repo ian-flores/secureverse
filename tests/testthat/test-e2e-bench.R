@@ -7,18 +7,19 @@ test_that("securebench reference datasets benchmark secureguard guardrails", {
   res <- securebench::guardrail_eval(g, df)
 
   metrics <- securebench::guardrail_metrics(res)
-  # Sanity: each metric is either a valid [0, 1] score or NaN/NA when the
-  # guardrail's behaviour against the current bundled dataset produces a
-  # degenerate confusion-matrix slice (e.g. zero predicted positives →
-  # undefined precision). The E2E goal here is that the pipeline runs
-  # end-to-end through secureguard + securebench, not that the metrics
-  # are impressive. Bring-your-own-corpus benchmarks should assert tighter
-  # ranges.
+  # Sanity: every metric is numeric and in [0, 1]; precision/recall/f1
+  # could still be NaN on an arbitrary corpus where the guardrail
+  # produces a degenerate confusion-matrix slice (zero predicted
+  # positives → undefined precision), but accuracy is always defined
+  # and should be a real number for any non-empty labeled dataset.
   for (m in c("precision", "recall", "f1", "accuracy")) {
     v <- metrics[[m]]
     expect_true(is.numeric(v))
     expect_true(is.na(v) || (v >= 0 && v <= 1))
   }
+  expect_false(is.na(metrics$accuracy))
+  expect_gte(metrics$accuracy, 0)
+  expect_lte(metrics$accuracy, 1)
 })
 
 test_that("secureverse_versions() surfaces every sibling", {
