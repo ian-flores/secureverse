@@ -1,3 +1,6 @@
 ^\.github$
 ^LICENSE\.md$
 ^README\.Rmd$
+^cran-comments\.md$
+^CLAUDE\.md$
+^\.claude$
