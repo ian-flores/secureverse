@@ -24,15 +24,17 @@ pak::pak("ian-flores/secureverse@v0.1.0")
 
 This resolves to:
 
-| Package       | Pinned version |
-| ------------- | -------------- |
-| securer       | 0.2.0          |
-| securetools   | 0.2.0          |
-| secureguard   | 0.3.0          |
-| securecontext | 0.2.0          |
-| orchestr      | 0.2.0          |
-| securetrace   | 0.2.1          |
-| securebench   | 0.2.0          |
+| Package       | Minimum version |
+| ------------- | --------------- |
+| securer       | 0.2.0           |
+| securetools   | 0.2.0           |
+| secureguard   | 0.3.0           |
+| securecontext | 0.2.0           |
+| orchestr      | 0.2.0           |
+| securetrace   | 0.2.1           |
+| securebench   | 0.2.1           |
+
+`Remotes:` is unpinned (`ian-flores/<pkg>` form), so `pak::pak()` always picks up the latest commit on each sibling's `main`. `Imports:` carries the minimum-version floors above.
 
 ## The stack
 
@@ -81,7 +83,7 @@ secureverse::secureverse_versions()
 #> * securecontext: 0.2.0
 #> * orchestr: 0.2.0
 #> * securetrace: 0.2.1
-#> * securebench: 0.2.0
+#> * securebench: 0.2.1
 ```
 
 ## Running the E2E tests
@@ -105,3 +107,10 @@ box for partial installs too.
   [securebench](https://github.com/ian-flores/securebench).
 * `vignette("ecosystem-integration", package = "securetrace")` — span
   taxonomy and sibling instrumentation pattern.
+* [`inst/release/RELEASING.md`](inst/release/RELEASING.md) — CRAN
+  submission order and the `build-cran-tarball.R` helper for stripping
+  `Remotes:` at submission time.
+
+## License
+
+MIT
